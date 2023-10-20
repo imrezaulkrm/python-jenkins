@@ -7,9 +7,7 @@ pipeline {
                 git branch: 'main', url: 'https://github.com/imrezaulkrm/python-jenkins.git'
             }
         }
-    }
 
-    stages {
         stage('build number tag') {
             steps {
                 sh '''BUILD_NUMBER="${BUILD_NUMBER}"
@@ -18,9 +16,7 @@ pipeline {
                     docker run -d -p 3010:3000 $IMAGE_NAME'''
             }
         }
-    }
 
-    stages {
         stage('todays date tag') {
             steps {
                 sh '''TODAYS_DATE=$(date "+%Y%m%d")
@@ -29,18 +25,14 @@ pipeline {
                     docker run -d -p 3020:3000 $IMAGE_NAME1'''
             }
         }
-    }
 
-    stages {
         stage('just latest tag') {
             steps {
                 sh '''docker build -t imrezaulkrm/python:latest .
                     docker run -d -p 3030:3000 imrezaulkrm/python:latest'''
             }
         }
-    }
 
-    stages {
         stage('Hello') {
             steps {
                 sh '''docker login -u imrezaulkrm -p Rezaul@thenos
