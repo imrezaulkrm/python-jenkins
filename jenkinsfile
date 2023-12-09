@@ -35,7 +35,7 @@ pipeline {
 
         stage('Hello') {
             steps {
-                sh '''docker login -u imrezaulkrm -p Rezaul@thenos
+                sh '''docker login -u "use your user name" -p "use your password"
                     docker push $IMAGE_NAME
                     docker push $IMAGE_NAME1
                     docker push imrezaulkrm/python:latest'''
